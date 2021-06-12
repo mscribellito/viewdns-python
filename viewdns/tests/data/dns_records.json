@@ -1,0 +1,26 @@
+{
+    "query": {
+        "tool": "dnsrecord_PRO",
+        "domain": "twitter.com",
+        "recordtype": "ANY"
+    },
+    "response": {
+        "records": [
+            {
+                "name": "twitter.com.",
+                "ttl": "30",
+                "class": "IN",
+                "type": "A",
+                "data": "199.59.148.82"
+            },
+            {
+                "name": "twitter.com.",
+                "ttl": "600",
+                "class": "IN",
+                "type": "MX",
+                "priority": "10",
+                "data": "aspmx.l.google.com."
+            }
+        ]
+    }
+}

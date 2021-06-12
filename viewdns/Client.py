@@ -14,6 +14,16 @@ class Client():
 
         self.api_key = api_key
     
+    def get_dns_records(self, domain, record_type='ANY'):
+
+        params = dict()
+        params['domain'] = domain
+        params['recordtype'] = record_type
+
+        data = self._execute('dnsrecord', params=params)
+
+        return data
+    
     def get_ip_location(self, ip):
 
         params = dict()
