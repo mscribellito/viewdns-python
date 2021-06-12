@@ -37,9 +37,9 @@ print(dns_records) # [<DNSRecord> {name=twitter.com., ttl=293, class_=IN, type=S
 ### Get HTTP Headers
 
 ```python
-ip_location = client.get_ip_location('11.11.11.11')
+http_headers = client.get_http_headers('11.11.11.11')
 
-print(ip_location) # [<HTTPHeader> {name=http_status, value=301}, ...]
+print(http_headers) # [<HTTPHeader> {name=http_status, value=301}, ...]
 ```
 
 ### IP Location Finder
