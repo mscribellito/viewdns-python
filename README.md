@@ -10,6 +10,14 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install viewdns
 pip setup.py install
 ```
 
+## Usage
+
+```python
+import viewdns
+
+client = viewdns.Client('your-api-key')
+```
+
 ## Features
 
 `viewdns-python` does not support all the tools *yet*. Below is a list of what is **currently supported**:
@@ -18,16 +26,28 @@ pip setup.py install
 * Get HTTP Headers
 * IP Location Finder
 
-## Usage
+### DNS Record Lookup
 
 ```python
-import viewdns
+dns_records = client.get_dns_records('twitter.com')
 
-client = viewdns.Client('your-api-key')
+print(dns_records) # [<DNSRecord> {name=twitter.com., ttl=293, class_=IN, type=SOA, priority=None, data=ns1.p26.dynect.net. zone-admin.dyndns.com. 2007158928 3600 600 604800 60, class=IN}, ...]
+```
 
-info = client.get_ip_location('127.0.0.1')
+### Get HTTP Headers
 
-print(info) # <IPLocation> {city=, zipcode=0, region_code=, country_code=JP, country_name=Japan, latitude=35.69, longitude=139.69, gmt_offset=, dst_offset=, region_name=}
+```python
+ip_location = client.get_ip_location('11.11.11.11')
+
+print(ip_location) # [<HTTPHeader> {name=http_status, value=301}, ...]
+```
+
+### IP Location Finder
+
+```python
+ip_location = client.get_ip_location('11.11.11.11')
+
+print(ip_location) # <IPLocation> {city=Bullard, zipcode=75757, region_code=TX, country_code=US, country_name=United States, latitude=32.1095, longitude=-95.3342, gmt_offset=, dst_offset=, region_name=Texas}
 ```
 
 ## Testing
