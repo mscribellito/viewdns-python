@@ -42,6 +42,24 @@ class Client():
 
         return data
     
+    def get_http_headers(self, domain):
+        """
+        Retrieves the HTTP headers of a remote domain. Useful in determining the web server (and version) in use and much more.
+
+        Params:
+
+        * domain - the domain to retrieve the HTTP headers for
+
+        Docs: https://viewdns.info/api/docs/get-http-headers.php
+        """
+
+        params = dict()
+        params['domain'] = domain
+
+        data = self._execute('httpheaders', params=params)
+
+        return data
+    
     def get_ip_location(self, ip):
         """
         This tool will display geographic information about a supplied IP address including city, country, latitude, longitude and more.

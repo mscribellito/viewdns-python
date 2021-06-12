@@ -1,0 +1,46 @@
+{
+    "query": {
+        "tool": "httpheaders_PRO",
+        "domain": "twitter.com"
+    },
+    "response": {
+        "headers": [
+            {
+                "name": "http_status",
+                "value": "301"
+            },
+            {
+                "name": "connection",
+                "value": "close"
+            },
+            {
+                "name": "content-length",
+                "value": "0"
+            },
+            {
+                "name": "date",
+                "value": "Mon, 12 Jan 2015 23:42:16 UTC"
+            },
+            {
+                "name": "location",
+                "value": "https://twitter.com/"
+            },
+            {
+                "name": "server",
+                "value": "tsa_a"
+            },
+            {
+                "name": "set-cookie",
+                "value": "guest_id=v1%3A142110612345448134; Domain=.twitter.com; Path=/; Expires=Wed, 11-Jan-2017 23:42:16 UTC"
+            },
+            {
+                "name": "x-connection-hash",
+                "value": "feb175daf57faabcde308af8372f0d8d"
+            },
+            {
+                "name": "x-response-time",
+                "value": "2"
+            }
+        ]
+    }
+}
