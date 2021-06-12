@@ -7,8 +7,16 @@
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install viewdns-python.
 
 ```bash
-pip install viewdns-python
+pip setup.py install
 ```
+
+## Features
+
+`viewdns-python` does not support all the tools *yet*. Below is a list of what is **currently supported**:
+
+* DNS Record Lookup
+* Get HTTP Headers
+* IP Location Finder
 
 ## Usage
 
