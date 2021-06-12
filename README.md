@@ -3,6 +3,7 @@
 `viewdns-python` is a Python library for interacting with the [ViewDNS.info](https://viewdns.info/) API.
 
 [![Python package](https://github.com/mscribellito/viewdns-python/actions/workflows/python-package.yml/badge.svg)](https://github.com/mscribellito/viewdns-python/actions/workflows/python-package.yml)
+[![Upload Python Package](https://github.com/mscribellito/viewdns-python/actions/workflows/python-publish.yml/badge.svg)](https://github.com/mscribellito/viewdns-python/actions/workflows/python-publish.yml)
 
 ## Installation
 
