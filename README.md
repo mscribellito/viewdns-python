@@ -22,9 +22,9 @@ client = viewdns.Client('your-api-key')
 
 `viewdns-python` does not support all the tools *yet*. Below is a list of what is **currently supported**:
 
-* DNS Record Lookup
-* Get HTTP Headers
-* IP Location Finder
+* [DNS Record Lookup](#dns-record-lookup)
+* [Get HTTP Headers](#get-http-headers)
+* [IP Location Finder](#ip-location-finder)
 
 ### DNS Record Lookup
 
