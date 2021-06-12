@@ -25,7 +25,9 @@ import viewdns
 
 client = viewdns.Client('your-api-key')
 
-print(client.get_ip_location('127.0.0.1'))
+info = client.get_ip_location('127.0.0.1')
+
+print(info) # {'query': {'tool': 'iplocation_PRO', 'ip': '127.0.0.1'}, 'response': {'city': '', 'zipcode': '0', 'region_code': '', 'region_name': '', 'country_code': 'JP', 'country_name': 'Japan', 'latitude': '35.69', 'longitude': '139.69', 'gmt_offset': '', 'dst_offset': ''}}
 ```
 
 ## Testing
