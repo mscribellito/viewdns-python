@@ -37,7 +37,7 @@ print(dns_records) # [<DNSRecord> {name=twitter.com., ttl=293, class_=IN, type=S
 ### Get HTTP Headers
 
 ```python
-http_headers = client.get_http_headers('11.11.11.11')
+http_headers = client.get_http_headers('twitter.com')
 
 print(http_headers) # [<HTTPHeader> {name=http_status, value=301}, ...]
 ```
