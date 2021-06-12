@@ -5,6 +5,10 @@ try:
 except ImportError:
     from urllib import parse as urlparse
 
+from .DNSRecord import DNSRecord
+from .HTTPHeader import HTTPHeader
+from .IPLocation import IPLocation
+
 class Client():
 
     base_url = 'https://api.viewdns.info/'
@@ -38,9 +42,17 @@ class Client():
         params['domain'] = domain
         params['recordtype'] = record_type
 
-        data = self._execute('dnsrecord', params=params)
+        res = self._execute('dnsrecord', params=params)
 
-        return data
+        dns_records = []
+
+        for dns_record in res['response']['records']:
+            # class is a reserved word :|
+            dns_record['class_'] = dns_record['class']
+            dns_record = DNSRecord(**dns_record)
+            dns_records.append(dns_record)
+
+        return dns_records
     
     def get_http_headers(self, domain):
         """
@@ -56,9 +68,15 @@ class Client():
         params = dict()
         params['domain'] = domain
 
-        data = self._execute('httpheaders', params=params)
+        res = self._execute('httpheaders', params=params)
 
-        return data
+        http_headers = []
+
+        for http_header in res['response']['headers']:
+            http_header = HTTPHeader(**http_header)
+            http_headers.append(http_header)
+
+        return http_headers
     
     def get_ip_location(self, ip):
         """
@@ -74,9 +92,11 @@ class Client():
         params = dict()
         params['ip'] = ip
 
-        data = self._execute('iplocation', params=params)
+        res = self._execute('iplocation', params=params)
 
-        return data
+        ip_location = IPLocation(**res['response'])
+
+        return ip_location
     
     def _execute(self, url, params=None):
 

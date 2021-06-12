@@ -19,21 +19,17 @@ class TestDnsRecords(BaseTest):
         url = self.base_url + 'dnsrecord'
         responses.add(responses.GET, url, body=data, status=200)
 
-        ip_location = self.client.get_dns_records('twitter.com')
+        dns_records = self.client.get_dns_records('twitter.com')
 
-        self.assertEqual(ip_location['query']['tool'], 'dnsrecord_PRO')
-        self.assertEqual(ip_location['query']['domain'], 'twitter.com')
-        self.assertEqual(ip_location['query']['recordtype'], 'ANY')
+        self.assertEqual(dns_records[0].name, 'twitter.com.')
+        self.assertEqual(dns_records[0].ttl, '30')
+        self.assertEqual(dns_records[0].class_, 'IN')
+        self.assertEqual(dns_records[0].type, 'A')
+        self.assertEqual(dns_records[0].data, '199.59.148.82')
 
-        self.assertEqual(ip_location['response']['records'][0]['name'], 'twitter.com.')
-        self.assertEqual(ip_location['response']['records'][0]['ttl'], '30')
-        self.assertEqual(ip_location['response']['records'][0]['class'], 'IN')
-        self.assertEqual(ip_location['response']['records'][0]['type'], 'A')
-        self.assertEqual(ip_location['response']['records'][0]['data'], '199.59.148.82')
-
-        self.assertEqual(ip_location['response']['records'][1]['name'], 'twitter.com.')
-        self.assertEqual(ip_location['response']['records'][1]['ttl'], '600')
-        self.assertEqual(ip_location['response']['records'][1]['class'], 'IN')
-        self.assertEqual(ip_location['response']['records'][1]['type'], 'MX')
-        self.assertEqual(ip_location['response']['records'][1]['priority'], '10')
-        self.assertEqual(ip_location['response']['records'][1]['data'], 'aspmx.l.google.com.')
+        self.assertEqual(dns_records[1].name, 'twitter.com.')
+        self.assertEqual(dns_records[1].ttl, '600')
+        self.assertEqual(dns_records[1].class_, 'IN')
+        self.assertEqual(dns_records[1].type, 'MX')
+        self.assertEqual(dns_records[1].priority, '10')
+        self.assertEqual(dns_records[1].data, 'aspmx.l.google.com.')

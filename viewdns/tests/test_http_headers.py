@@ -19,13 +19,10 @@ class TestHttpHeaders(BaseTest):
         url = self.base_url + 'httpheaders'
         responses.add(responses.GET, url, body=data, status=200)
 
-        ip_location = self.client.get_http_headers('twitter.com')
+        http_headers = self.client.get_http_headers('twitter.com')
 
-        self.assertEqual(ip_location['query']['tool'], 'httpheaders_PRO')
-        self.assertEqual(ip_location['query']['domain'], 'twitter.com')
+        self.assertEqual(http_headers[0].name, 'http_status')
+        self.assertEqual(http_headers[0].value, '301')
 
-        self.assertEqual(ip_location['response']['headers'][0]['name'], 'http_status')
-        self.assertEqual(ip_location['response']['headers'][0]['value'], '301')
-
-        self.assertEqual(ip_location['response']['headers'][8]['name'], 'x-response-time')
-        self.assertEqual(ip_location['response']['headers'][8]['value'], '2')
+        self.assertEqual(http_headers[8].name, 'x-response-time')
+        self.assertEqual(http_headers[8].value, '2')
