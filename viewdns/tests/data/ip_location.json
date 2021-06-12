@@ -1,0 +1,18 @@
+{
+    "query": {
+        "tool": "iplocation_PRO",
+        "ip": "11.11.11.11"
+    },
+    "response": {
+        "city": "Columbus",
+        "zipcode": "43218",
+        "region_code": "OH",
+        "region_name": "Ohio",
+        "country_code": "US",
+        "country_name": "United States",
+        "latitude": "39.9968",
+        "longitude": "-82.9882",
+        "gmt_offset": "",
+        "dst_offset": ""
+    }
+}
